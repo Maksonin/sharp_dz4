@@ -52,7 +52,6 @@ void Task27(){
 
 void Task29(){
     //  Напишите программу, которая задаёт массив из 8 случайных целых чисел и выводит отсортированный по модулю массив.
-
     // метод для заполнения переденного массива случайными числами (по умолчанию от -10 до 10)
     void SetArray(int[] array, int min_random = -10, int max_random = 10){
         Random rand = new Random();
@@ -71,18 +70,16 @@ void Task29(){
 
     // метод для сортировки массива
     void SortArray(int[] array){
-        int tmp;
-
         for(int i1 = 0; i1 < array.Length; i1++){
-            for(int i = 0; i < array.Length - 1; i++){
+            for(int i = 0; i < array.Length - i1 - 1; i++){
                 if(Math.Abs(array[i]) > Math.Abs(array[i+1])) {
-                    tmp = array[i];
-                    array[i] = array[i+1];
-                    array[i+1] = tmp;
+                    // int tmp = array[i];
+                    // array[i] = array[i+1];
+                    // array[i+1] = tmp;
+                    (array[i],array[i+1]) = (array[i+1],array[i]);
                 }
             }
         }
-
     }
 
     int[] array = new int[8];
