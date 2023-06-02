@@ -1,4 +1,5 @@
-﻿int Input(string text){
+﻿// метод для вывода запроса в консоль на ввод числа и чтение числа из консоли
+int Input(string text){
     Console.WriteLine(text);
     return Convert.ToInt32(Console.ReadLine());
 }
@@ -52,20 +53,23 @@ void Task27(){
 void Task29(){
     //  Напишите программу, которая задаёт массив из 8 случайных целых чисел и выводит отсортированный по модулю массив.
 
-    void SetArray(int[] array){
+    // метод для заполнения переденного массива случайными числами (по умолчанию от -10 до 10)
+    void SetArray(int[] array, int min_random = -10, int max_random = 10){
         Random rand = new Random();
 
         for(int i = 0; i < array.Length; i++){
-            array[i] = rand.Next(-10,10);
+            array[i] = rand.Next(min_random , max_random);
         }
     }
 
+    // метод для вывода значений элементов массива в консоль
     void PrintArray(int[] array){
         for(int i = 0; i < array.Length; i++)
             Console.Write(array[i] + " ");
             Console.WriteLine();
     }
 
+    // метод для сортировки массива
     void SortArray(int[] array){
         int tmp;
 
@@ -83,7 +87,8 @@ void Task29(){
 
     int[] array = new int[8];
 
-    SetArray(array);
+    SetArray(array, -100, 100);
+
     PrintArray(array);
     Console.WriteLine("------------------------------");
     SortArray(array);
@@ -91,6 +96,7 @@ void Task29(){
     Console.WriteLine("------------------------------");
 }
 
+// метод для вывода меню выбора задач
 void Menu() {
     Console.WriteLine("1 - Задача 25");
     Console.WriteLine("2 - Задача 27");
